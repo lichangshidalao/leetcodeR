@@ -69,7 +69,69 @@
  * @param {string} s
  * @return {number}
  */
-var romanToInt = function(s) {
-    
+var romanToInt = function (s) {
+    let arr = s.split("")
+    let str
+    let numArray = 0
+    for (let i = 0; i < arr.length; i++) {
+        i + 1 == arr.length ? str = arr[i] : str = arr[i] + arr[i + 1]
+        let isIXC = str.indexOf("IV") != -1 || str.indexOf("IX") != -1 || str.indexOf("XL") != -1
+            || str.indexOf("XC") != -1 || str.indexOf("CD") != -1 || str.indexOf("CM") != -1 ? true : false
+        if (isIXC) {
+            switch (str) {
+                case "IV":
+                    numArray += 4
+                    i += 1
+                    break
+                case "IX":
+                    numArray += 9
+                    i += 1
+                    break
+                case "XL":
+                    numArray += 40
+                    i += 1
+                    break
+                case "XC":
+                    numArray += 90
+                    i += 1
+                    break
+                case "CD":
+                    numArray += 400
+                    i += 1
+                    break
+                case "CM":
+                    numArray += 900
+                    i += 1
+                    break
+            }
+        } else {
+            istrue = false
+            let str2 = arr[i]
+            switch (str2) {
+                case "I":
+                    numArray += 1
+                    break
+                case "V":
+                    numArray += 5
+                    break
+                case "X":
+                    numArray += 10
+                    break
+                case "L":
+                    numArray += 50
+                    break
+                case "C":
+                    numArray += 100
+                    break
+                case "D":
+                    numArray += 500
+                    break
+                case "M":
+                    numArray += 1000
+                    break
+            }
+        }
+    }
+    return numArray
 };
 
