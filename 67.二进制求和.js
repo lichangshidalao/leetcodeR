@@ -32,6 +32,8 @@
  * @return {string}
  */
 var addBinary = function(a, b) {
+    let alen=a.length
+    let blen=b.length
     
 };
 
