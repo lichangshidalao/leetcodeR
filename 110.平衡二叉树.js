@@ -60,5 +60,15 @@
  */
 var isBalanced = function (root) {
     if (!root) { return true }
-};
+    if (Math.abs(depth(root.left) - depth(root.right)) > 1) { return false }
+    else {
+        return isBalanced(root.left) && isBalanced(root.right)
+    }
+}
 
+const depth = (roots) => {
+    if (!roots) { return 0 }
+    let left = depth(roots.left) + 1
+    let right = depth(roots.right) + 1
+    return Math.max(right, left)
+}
