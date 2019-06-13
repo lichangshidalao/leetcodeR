@@ -32,8 +32,13 @@
 /**
  * @param {number[]} nums
  */
-var NumArray = function(nums) {
-    
+var NumArray = function (nums) {
+    this.sums = []
+    let sum = 0
+    for (let i of nums) {
+        sum += i
+        this.sums.push(sum)
+    }
 };
 
 /** 
@@ -41,11 +46,11 @@ var NumArray = function(nums) {
  * @param {number} j
  * @return {number}
  */
-NumArray.prototype.sumRange = function(i, j) {
-    
+NumArray.prototype.sumRange = function (i, j) {
+    return this.sums[j] - this.sums[j - 1]
 };
 
-/** 
+/**
  * Your NumArray object will be instantiated and called as such:
  * var obj = new NumArray(nums)
  * var param_1 = obj.sumRange(i,j)
